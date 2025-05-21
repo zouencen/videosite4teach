@@ -1,0 +1,1 @@
+This is the code sample of USTS 4002，basic use of Java and springboot.

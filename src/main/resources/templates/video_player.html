@@ -1,0 +1,10 @@
+<html>
+<head><title>Video Player Page</title></head>
+    <body>
+        <div>
+            <h1 th:text="${video.name}"></h1>
+            <p th:text="'Duration(Mock): '+${video.time}+' Minutes'"></p>
+            <video width="800" height="450" th:src="'http://localhost:8085'+${video.resourceLink}" controls="controls" ></video>             
+        </div>
+    </body>
+</html>
