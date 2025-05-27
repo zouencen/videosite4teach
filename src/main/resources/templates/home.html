@@ -1,10 +1,10 @@
 <html>
     <script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
-<head>
+    <head>
         <title>MeTube</title>
         <link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet"></link>
         <link href="css/album.css" rel="stylesheet"></link>
-</head>
+    </head>
     <body data-gr-c-s-loaded="true">
         <header>
             <div class="collapse bg-dark" id="navbarHeader">
@@ -16,13 +16,13 @@
                         </div>
                         <div class="col-sm-4 offset-md-1 py-4">
                             <h4 class="text-white">Contact</h4>
-                           
+
                             <ul class="list-unstyled">
                                 <li><a href="https://v4.bootcss.com/docs/4.3/examples/album/#" class="text-white">Follow on Twitter</a></li>
                                 <li><a href="https://v4.bootcss.com/docs/4.3/examples/album/#" class="text-white">Like on Facebook</a></li>
                                 <li><a href="https://v4.bootcss.com/docs/4.3/examples/album/#" class="text-white">Email me</a></li>
                             </ul>
-                             <a  href="/user/logout">Logout</a>
+                            <a  href="/user/logout">Logout</a>
                         </div>
                     </div>
                 </div>
@@ -36,18 +36,25 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                   
+
                 </div>
-                 
+
             </div>
-            </header>
-  <main role="main">
+        </header>
+        <main role="main">
 
             <section class="jumbotron text-center">
                 <div class="container">
                     <h1>Welcome to MeTube</h1>
                     <p class="lead text-muted">Enjoy videos we have here.</p>
-  
+
+                </div>
+                <div class="container">
+                    <form th:action="@{/search}" method="post">
+                        <label for="username">Search</label>
+                        <input id="search" type="text" name="search"></input>
+                        <button type="submit"> search</button>
+                    </form>
                 </div>
             </section>
             <!--
@@ -58,8 +65,8 @@
                 <p th:text="${video.time}"></p>minutes
                 <a th:href="'/video/'+${video.id}">view</a>
             </div>  -->
-            
-             <div class="album py-5 bg-light">
+
+            <div class="album py-5 bg-light">
                 <div class="container">
                     <div class="row">
 
@@ -83,14 +90,14 @@
                     </div>
                 </div>
             </div>
-            </main>
-        
-        <footer class="text-muted">
-  <div class="container">
+        </main>
 
-  </div>
-</footer>
-<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}" crossorigin="anonymous"></script>
-      <script th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.bundle.js}"></script>
-</body>
+        <footer class="text-muted">
+            <div class="container">
+
+            </div>
+        </footer>
+        <script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}" crossorigin="anonymous"></script>
+        <script th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.bundle.js}"></script>
+    </body>
 </html>

@@ -5,6 +5,7 @@
 package com.usts.videoSite.controller.repo;
 
 import com.usts.videoSite.model.Video;
+import java.util.List;
 //import java.util.ArrayList;
 //import java.util.List;
 import org.springframework.data.repository.CrudRepository;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface VideoRepo extends CrudRepository<Video, Long>{
+    List<Video> findByNameLike(String name);
 
 }
     /*List<Video> videos;

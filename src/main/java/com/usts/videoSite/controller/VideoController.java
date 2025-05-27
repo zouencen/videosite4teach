@@ -6,11 +6,14 @@ package com.usts.videoSite.controller;
 
 import com.usts.videoSite.controller.repo.VideoRepo;
 import com.usts.videoSite.model.Video;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -55,6 +58,14 @@ public class VideoController {
         return "home";
     }
     
+    
+    @PostMapping("/search")
+    public String handleSearch(@RequestParam("search") String search,Model model) {
+        List<Video> videoList = videos.findByNameLike("%"+search+"%");
+        model.addAttribute("videos",videoList);
+        //model.addAttribute("videos",videos.getVideos());
+        return "home";
+    }
     
     @GetMapping("/video/{id}")
     public String player(@PathVariable("id") int id,Model model)
